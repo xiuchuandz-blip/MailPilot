@@ -529,9 +529,8 @@ app.mount("/", StaticFiles(directory=STATIC_DIR), name="static")
 # ---------------------------------------------------------------------------
 
 if __name__ == "__main__":
-    threading.Timer(1.5, lambda: webbrowser.open("http://127.0.0.1:1375")).start()
     try:
-        uvicorn.run(app, host="127.0.0.1", port=1375, log_level="info")
+        uvicorn.run(app, host="0.0.0.0", port=5000, log_level="info")
     except OSError as e:
-        logger.error("Port 1375 is already in use: %s", e)
-        input("Press Enter to exit...")
+        logger.error("Port 5000 is already in use: %s", e)
+        raise
