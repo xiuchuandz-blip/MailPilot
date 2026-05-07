@@ -529,8 +529,9 @@ app.mount("/", StaticFiles(directory=STATIC_DIR), name="static")
 # ---------------------------------------------------------------------------
 
 if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
     try:
-        uvicorn.run(app, host="0.0.0.0", port=5000, log_level="info")
+        uvicorn.run(app, host="0.0.0.0", port=port, log_level="info")
     except OSError as e:
-        logger.error("Port 5000 is already in use: %s", e)
+        logger.error("Port %s is already in use: %s", port, e)
         raise
