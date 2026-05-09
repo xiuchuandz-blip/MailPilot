@@ -41,7 +41,7 @@ app = FastAPI(title="Outlook Manager", lifespan=lifespan)
 OAUTH2_URL = "https://login.microsoftonline.com/common/oauth2/v2.0/token"
 GRAPH_MESSAGES_URL = "https://graph.microsoft.com/v1.0/me/mailFolders/{folder}/messages"
 
-OUTPUT_DIR = "output"
+OUTPUT_DIR = os.environ.get("DATA_DIR", "output")
 ACCOUNTS_PATH = os.path.join(OUTPUT_DIR, "accounts.json")
 GROUPS_PATH = os.path.join(OUTPUT_DIR, "groups.json")
 CSV_PATH = os.path.join(OUTPUT_DIR, "accounts.csv")
