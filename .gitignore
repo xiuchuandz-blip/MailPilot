@@ -50,7 +50,5 @@ android/app/src/main/res/
 Thumbs.db
 desktop.ini
 
-# Docker (legacy)
+# Docker — Dockerfile/.dockerignore 需被 git 跟踪以构建 ARM64 镜像，故不在此忽略
 docker-compose.yml
-Dockerfile
-.dockerignore
